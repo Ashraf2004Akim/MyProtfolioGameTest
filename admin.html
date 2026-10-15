@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Ashraf Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="admin-page">
+    <!-- Admin Navbar -->
+    <nav class="admin-nav">
+        <div class="admin-nav-content">
+            <div class="admin-brand">
+                <i class="fas fa-cog fa-spin"></i>
+                <span>Admin Dashboard</span>
+            </div>
+            <div class="admin-nav-actions">
+                <a href="index.html" class="btn btn-secondary btn-sm" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> View Site
+                </a>
+                <button class="btn btn-danger btn-sm" id="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar" id="admin-sidebar">
+            <ul class="sidebar-menu">
+                <li class="sidebar-item active" data-section="personal">
+                    <i class="fas fa-user"></i> Personal Info
+                </li>
+                <li class="sidebar-item" data-section="hero">
+                    <i class="fas fa-home"></i> Hero Section
+                </li>
+                <li class="sidebar-item" data-section="about">
+                    <i class="fas fa-info-circle"></i> About
+                </li>
+                <li class="sidebar-item" data-section="images">
+                    <i class="fas fa-images"></i> Images
+                </li>
+                <li class="sidebar-item" data-section="pcgames">
+                    <i class="fas fa-desktop"></i> PC Games
+                </li>
+                <li class="sidebar-item" data-section="mobilegames">
+                    <i class="fas fa-mobile-alt"></i> Mobile Games
+                </li>
+                <li class="sidebar-item" data-section="setup">
+                    <i class="fas fa-cogs"></i> Technical Setup
+                </li>
+                <li class="sidebar-item" data-section="contact">
+                    <i class="fas fa-envelope"></i> Contact Info
+                </li>
+                <li class="sidebar-item" data-section="credentials">
+                    <i class="fas fa-key"></i> Change Password
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Success Message -->
+            <div class="admin-alert success" id="save-success" style="display:none;">
+                <i class="fas fa-check-circle"></i>
+                <span>Changes saved successfully! Refresh portfolio to see updates.</span>
+                <button class="alert-close" onclick="this.parentElement.style.display='none'">&times;</button>
+            </div>
+
+            <!-- Personal Info Section -->
+            <div class="admin-section active" id="section-personal">
+                <div class="section-header">
+                    <h2><i class="fas fa-user"></i> Personal Information</h2>
+                    <p>Update your basic personal details</p>
+                </div>
+                <form class="admin-form" id="form-personal">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" id="edit-name" value="Md Ashraf Ullah">
+                        </div>
+                        <div class="form-group">
+                            <label>Age</label>
+                            <input type="number" id="edit-age" value="22">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Location</label>
+                            <input type="text" id="edit-location" value="Dhaka, Bangladesh">
+                        </div>
+                        <div class="form-group">
+                            <label>Timezone</label>
+                            <input type="text" id="edit-timezone" value="GMT+6 (BST)">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Languages</label>
+                            <input type="text" id="edit-languages" value="Bangla & English">
+                        </div>
+                        <div class="form-group">
+                            <label>Education</label>
+                            <input type="text" id="edit-education" value="BSc in Software Engineering">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Player Type</label>
+                        <select id="edit-playertype">
+                            <option value="Casual">Casual</option>
+                            <option value="Mid-Core">Mid-Core</option>
+                            <option value="Hardcore" selected>Hardcore</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save Changes</button>
+                </form>
+            </div>
+
+            <!-- Hero Section -->
+            <div class="admin-section" id="section-hero">
+                <div class="section-header">
+                    <h2><i class="fas fa-home"></i> Hero Section</h2>
+                    <p>Edit the main landing area</p>
+                </div>
+                <form class="admin-form" id="form-hero">
+                    <div class="form-group">
+                        <label>Title / Role</label>
+                        <input type="text" id="edit-hero-title" value="Professional Game Tester">
+                    </div>
+                    <div class="form-group">
+                        <label>Subtitle / Tagline</label>
+                        <textarea id="edit-hero-subtitle"
+                            rows="3">Gaming & Technology Enthusiast | 6,350+ Hours AAA Experience | Qualified Recorded Playtester | BSc Software Engineering Student</textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Total Gaming Hours</label>
+                            <input type="text" id="edit-stat-hours" value="6350+">
+                        </div>
+                        <div class="form-group">
+                            <label>Years Experience</label>
+                            <input type="text" id="edit-stat-years" value="5+">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Qualified Recording Hours</label>
+                            <input type="text" id="edit-stat-recordings" value="19+">
+                        </div>
+                        <div class="form-group">
+                            <label>Platforms Count</label>
+                            <input type="text" id="edit-stat-platforms" value="2">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save Changes</button>
+                </form>
+            </div>
+
+            <!-- About Section -->
+            <div class="admin-section" id="section-about">
+                <div class="section-header">
+                    <h2><i class="fas fa-info-circle"></i> About Section</h2>
+                    <p>Edit your bio description</p>
+                </div>
+                <form class="admin-form" id="form-about">
+                    <div class="form-group">
+                        <label>About Description (HTML supported)</label>
+                        <textarea id="edit-about-description"
+                            rows="8">I'm a &lt;strong&gt;22-year-old hardcore gamer&lt;/strong&gt; and technology enthusiast based in &lt;strong&gt;Dhaka, Bangladesh (GMT+6)&lt;/strong&gt;. Currently completing my &lt;strong&gt;BSc in Software Engineering&lt;/strong&gt;, I have a deep passion for game testing and quality assurance. With &lt;strong&gt;AAA gaming experience since 2019&lt;/strong&gt; and over &lt;strong&gt;6,350 hours&lt;/strong&gt; in GTA 5 alone, I bring an unmatched understanding of game mechanics, player behavior, and quality expectations.</textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save Changes</button>
+                </form>
+            </div>
+
+            <!-- Images Section -->
+            <div class="admin-section" id="section-images">
+                <div class="section-header">
+                    <h2><i class="fas fa-images"></i> Images</h2>
+                    <p>Update your avatar and experience proof images. Use direct image URLs from ImgBB.</p>
+                </div>
+                <form class="admin-form" id="form-images">
+                    <div class="form-group">
+                        <label>👤 Profile Avatar Photo URL</label>
+                        <input type="url" id="edit-profile-img" value="https://i.ibb.co.com/rRcZKZHS"
+                            placeholder="https://i.ibb.co/...">
+                        <small class="form-hint">Square image recommended (500×500px)</small>
+                        <div class="image-preview" id="preview-avatar"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>📋 Experience Proof Screenshot URL</label>
+                        <input type="url" id="edit-exp-img" value="https://i.ibb.co.com/k621BQNx"
+                            placeholder="https://i.ibb.co/...">
+                        <small class="form-hint">Shofo/PlaytestCloud dashboard screenshot</small>
+                        <div class="image-preview" id="preview-exp"></div>
+                    </div>
+                    <button type="button" class="btn btn-secondary" onclick="previewImages()"
+                        style="margin-bottom:16px;">
+                        <i class="fas fa-eye"></i> Preview Images
+                    </button>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save Image URLs</button>
+                </form>
+            </div>
+
+            <!-- PC Games Section -->
+            <div class="admin-section" id="section-pcgames">
+                <div class="section-header">
+                    <h2><i class="fas fa-desktop"></i> PC Games</h2>
+                    <p>Edit game names, details, experience levels, and banner images</p>
+                </div>
+                <div id="pc-games-editor"></div>
+                <button class="btn btn-secondary" id="add-pc-game" style="margin-top: 20px;">
+                    <i class="fas fa-plus"></i> Add New PC Game
+                </button>
+                <button class="btn btn-primary" id="save-pc-games" style="margin-top: 16px;">
+                    <i class="fas fa-save"></i> Save All PC Games
+                </button>
+            </div>
+
+            <!-- Mobile Games Section -->
+            <div class="admin-section" id="section-mobilegames">
+                <div class="section-header">
+                    <h2><i class="fas fa-mobile-alt"></i> Mobile Games</h2>
+                    <p>Edit mobile game names, details, experience levels, and banner images</p>
+                </div>
+                <div id="mobile-games-editor"></div>
+                <button class="btn btn-secondary" id="add-mobile-game" style="margin-top: 20px;">
+                    <i class="fas fa-plus"></i> Add New Mobile Game
+                </button>
+                <button class="btn btn-primary" id="save-mobile-games" style="margin-top: 16px;">
+                    <i class="fas fa-save"></i> Save All Mobile Games
+                </button>
+            </div>
+
+            <!-- Technical Setup Section -->
+            <div class="admin-section" id="section-setup">
+                <div class="section-header">
+                    <h2><i class="fas fa-cogs"></i> Technical Setup</h2>
+                    <p>Update your hardware and recording specifications</p>
+                </div>
+                <form class="admin-form" id="form-setup">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Processor (CPU)</label>
+                            <input type="text" id="edit-cpu" value="AMD Ryzen 7 5700G with Radeon Graphics @ 3.80 GHz">
+                        </div>
+                        <div class="form-group">
+                            <label>RAM</label>
+                            <input type="text" id="edit-ram" value="16.0 GB (15.3 GB usable)">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Storage</label>
+                            <input type="text" id="edit-storage" value="477 GB SSD — Lexar SSD NM620 512GB">
+                        </div>
+                        <div class="form-group">
+                            <label>Graphics Card</label>
+                            <input type="text" id="edit-gpu" value="AMD Radeon™ Graphics (Integrated)">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Recording Software</label>
+                            <input type="text" id="edit-recording" value="OBS Studio / Client-provided Software">
+                        </div>
+                        <div class="form-group">
+                            <label>Recording Quality</label>
+                            <input type="text" id="edit-quality" value="1080p @ 60 FPS | Avg 100 FPS gameplay">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Microphone</label>
+                            <input type="text" id="edit-mic" value="Headset Microphone (Clear voice-over capable)">
+                        </div>
+                        <div class="form-group">
+                            <label>Internet</label>
+                            <input type="text" id="edit-internet" value="High-speed broadband (Fast upload capable)">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save Changes</button>
+                </form>
+            </div>
+
+            <!-- Contact Info Section -->
+            <div class="admin-section" id="section-contact">
+                <div class="section-header">
+                    <h2><i class="fas fa-envelope"></i> Contact Information</h2>
+                    <p>Update your contact details and social links</p>
+                </div>
+                <form class="admin-form" id="form-contact">
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="edit-email" value="ashraf@example.com">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Discord Link</label>
+                            <input type="text" id="edit-discord" value="#">
+                        </div>
+                        <div class="form-group">
+                            <label>LinkedIn URL</label>
+                            <input type="url" id="edit-linkedin" value="#">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Twitter/X URL</label>
+                            <input type="url" id="edit-twitter" value="#">
+                        </div>
+                        <div class="form-group">
+                            <label>Steam Profile URL</label>
+                            <input type="url" id="edit-steam" value="#">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save Changes</button>
+                </form>
+            </div>
+
+            <!-- Change Password Section -->
+            <div class="admin-section" id="section-credentials">
+                <div class="section-header">
+                    <h2><i class="fas fa-key"></i> Change Login Credentials</h2>
+                    <p>Update your admin username and password</p>
+                </div>
+                <form class="admin-form" id="form-credentials">
+                    <div class="form-group">
+                        <label>Current Password</label>
+                        <input type="password" id="current-password" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>New Username</label>
+                            <input type="text" id="new-username" placeholder="Leave blank to keep current">
+                        </div>
+                        <div class="form-group">
+                            <label>New Password</label>
+                            <input type="password" id="new-password" placeholder="Leave blank to keep current">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Confirm New Password</label>
+                        <input type="password" id="confirm-password">
+                    </div>
+                    <div class="form-error" id="cred-error" style="display:none;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span id="cred-error-msg"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Update
+                        Credentials</button>
+                </form>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+
+</html>
